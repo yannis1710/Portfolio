@@ -1,0 +1,52 @@
+body {
+    background-color: #FFEFD5; 
+    color: #333;
+    font-family: 'Georgia', serif;
+    margin: 0;
+    padding: 0;
+}
+
+nav {
+    background-color: #FF7F50;
+    padding: 10px;
+    text-align: right;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+h1, p {
+    text-align: center;
+}
+
+.section {
+    display: flex;
+    align-items: center;
+    margin: 30px;
+}
+
+.section img {
+    width: 25%;
+    height: auto;
+    margin-right: 20px;
+    border: 3px solid #FF4500; 
+    border-radius: 10px;
+}
+
+.section p {
+    font-size: 1.2em;
+    line-height: 1.6em;
+}
+
+.citation {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.citation a {
+    color: #333;
+    text-decoration: none;
+}

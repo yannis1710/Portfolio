@@ -1,0 +1,72 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #36ced3;
+    background-image: url('../images/flowers-on-a-meadow.jpg');
+    background-size: cover;
+    background-repeat: no-repeat; 
+    background-position: center; 
+    font-size: 110%;
+    color: #333333; 
+}
+
+header {
+    background-color: #fff;
+    padding: 10px 20px;
+    border-bottom: 1px solid #ccc;
+    text-align: center;
+    color: #333333; 
+}
+
+.profile-container {
+    max-width: 600px;
+    margin: 20px auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.profile-container h2 {
+    text-align: center;
+    color: #333333; 
+}
+
+.profile-container img {
+    float: right;
+    margin: 0 0 20px 20px;
+    border-radius: 50%;
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    margin-top: 20px;
+}
+
+.question {
+    font-weight: bold;
+    color: #333333; 
+}
+
+.answer {
+    margin-top: 5px;
+    color: #333333; 
+}
+
+footer {
+    background-color: #fff;
+    padding: 10px 20px;
+    border-top: 1px solid #ccc;
+    text-align: center;
+    margin-top: 20px;
+    color: #333333; 
+}

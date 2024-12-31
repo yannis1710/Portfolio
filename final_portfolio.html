@@ -1,0 +1,399 @@
+<!-- 
+Last updated: 15.12.2024 
+Author: Yannis Maxitas Moula
+Purpose: Portfolio Website
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <!-- Linking my css -->
+    <link rel="stylesheet" href="styles/final_portfolio.css">
+  </head>
+  
+  <body>
+    <!-- Background Videos (cloud mode and borealis mode) -->
+    
+    <video autoplay muted loop id="background-video-light" aria-hidden="true">
+      <source src="extra_material/cloud_video2.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+
+    <video autoplay muted loop id="background-video-dark" aria-hidden="true">
+      <source src="extra_material/background_video_night.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+
+    <!-- Primary navigation -->
+    <nav id="desktop-nav" aria-label="Primary navigation">
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#experience">Technical skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+
+      <!-- Dark Mode Toggle -->
+      <div id="dark-mode-switch" class="dark-mode-container">
+        <label class="switch">
+          <input type="checkbox" id="dark-mode-toggle">
+          <span class="slider"></span>
+        </label>
+      </div>
+    </nav>
+
+    <!-- Mobile navigation (hamburger) -->
+    <nav id="hamburger-nav" aria-label="Mobile navigation">
+      <div class="hamburger-menu">
+        <button 
+          class="hamburger-icon" 
+          onclick="toggleMenu()" 
+          aria-label="Toggle menu" 
+          aria-expanded="false" 
+          aria-controls="mobile-menu-links"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <!-- 
+          Defines a navigation menu with links to different sections of the page.
+        -->
+        <ul class="menu-links" id="mobile-menu-links" role="menu">
+          <li role="none">
+            <a href="#about" role="menuitem" onclick="toggleMenu()">About</a>
+          </li>
+          <li role="none">
+            <a href="#experience" role="menuitem" onclick="toggleMenu()">Technical Skills</a>
+          </li>
+          <li role="none">
+            <a href="#projects" role="menuitem" onclick="toggleMenu()">Projects</a>
+          </li>
+          <li role="none">
+            <a href="#contact" role="menuitem" onclick="toggleMenu()">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+      <!-- Profile Section -->
+      <section id="profile">
+        <figure class="section__pic-container">
+          <img
+            src="./extra_material/bilde-kfum.png"
+            alt="My profile picture"
+            data-magnify
+          >
+        </figure>
+        
+        <header class="section__text">
+          <p class="section__text__p1" id="welcome-text">Welcome, I'm</p>
+          <h1 class="title" id="name">Yannis Maxitas Moula</h1>
+          <p class="section__text__p2" id="dynamic-text">Student</p>
+          <div class="btn-container">
+            <button
+              class="btn btn-color-2"
+              onclick="window.open('./extra_material/CV2024_eng.pdf')"
+            >
+              Open CV
+            </button>
+            <div class="icon-row">
+              <img
+                src="./extra_material/linkedin.png"
+                alt="My LinkedIn profile"
+                class="icon"
+                onclick="window.open
+                ('https://www.linkedin.com/in/yannis-maxitas-moula-bb2317323/', '_blank')"
+              >
+              <img
+                src="./extra_material/github.png"
+                alt="My Github profile"
+                class="icon"
+                onclick="window.open('https://github.com/yannis1710', '_blank')"
+              >
+            </div>
+          </div>
+        </header>
+      </section>
+
+      <!-- About Section -->
+      <section id="about">
+        <h1 class="title" id="about-heading">About Me</h1>
+        <div class="section-container">
+          <figure class="section__pic-container">
+            <img
+              src="./extra_material/bilde-kfum2.jpg"
+              alt="Profile picture"
+              class="about-pic"
+              data-magnify
+            >
+          </figure>
+          
+          <div class="about-details-container">
+            <div class="about-containers">
+              <article class="details-container">
+                <img
+                  src="./extra_material/experience3.png"
+                  alt="Experience icon"
+                  class="icon"
+                >
+                <h3>Experience</h3>
+                <p>6+ years <br>Professional Football Player</p>
+              </article>
+              <article class="details-container">
+                <img
+                  src="./extra_material/education2.png"
+                  alt="Education icon"
+                  class="icon"
+                >
+                <h3>Education</h3>
+                <p>Bachelors Degree<br>Information Science</p>
+              </article>
+            </div>
+            <div class="text-container">
+              <article class="details-container about-text-box">
+                <h3>Info</h3>
+                <p>
+                  My name is Yannis Maxitas Moula. I am a student at the University of Bergen. 
+                  Currently I am studying Information Science. 
+                  I also am a professional football player with over 6 years of experience. 
+                  I am passionate about technology and looking forward to a career in the tech industry.
+                </p>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Experience Section -->
+      <section id="experience">
+        <h1 class="title">Technical skills</h1>
+        <div class="experience-details-container">
+          <div class="about-containers">
+            <article class="details-container">
+              <div class="article-container">
+                <article>
+                  <img
+                    src="./extra_material/html.png"
+                    alt="HTML logo"
+                    class="icon"
+                  >
+                    <h3>HTML</h3>
+                </article>
+                <article>
+                  <img
+                    src="./extra_material/css.png"
+                    alt="CSS logo"
+                    class="icon"
+                  >
+                    <h3>CSS</h3>
+                </article>
+                <article>
+                  <img
+                    src="./extra_material/_js.png"
+                    alt="JavaScript logo"
+                    class="icon"
+                  >
+                    <h3>JavaScript</h3>
+                </article>
+                <article>
+                  <img
+                    src="./extra_material/python.png"
+                    alt="Python logo"
+                    class="icon"
+                  >
+                    <h3>Python</h3>
+                </article>
+                <article>
+                  <img
+                    src="./extra_material/sql.png"
+                    alt="SQL logo"
+                    class="icon"
+                  >
+                    <h3>SQL</h3>
+                </article>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Projects Section -->
+      <section id="projects">
+        <h1 class="title">Projects</h1>
+
+        <div class="carousel-container">
+          <!-- Button for scrolling projects (left) -->
+          <button class="carousel-arrow left" aria-label="Previous Project">&#9664;</button>
+          <div class="carousel-track">
+            <article class="details-container color-container">
+              <div class="article-container">
+                <img
+                  src="./extra_material/bilde_WA1.png"
+                  alt="Preview of WA1 project"
+                  class="project-img"
+                >
+              </div>
+              <h2 class="experience-sub-title project-title">WA 1</h2>
+              <div class="btn-container">
+                <button
+                  class="btn btn-color-2 project-btn"
+                  onclick="window.open
+                  ('https://dikult105.k.uib.no/2024H/students/yamou1685/WA1_subjective_design.pdf','_blank')"
+                >
+                  Open
+                </button>
+              </div>
+            </article>
+
+            <article class="details-container color-container">
+              <div class="article-container">
+                <img
+                  src="./extra_material/bilde_WA2.png"
+                  alt="Preview of WA2 project"
+                  class="project-img"
+                >
+              </div>
+              <h2 class="experience-sub-title project-title">WA 2</h2>
+              <div class="btn-container">
+                <button
+                  class="btn btn-color-2 project-btn"
+                  onclick="window.open
+                  ('https://dikult105.k.uib.no/2024H/students/yamou1685/WA2_yamou1685.pdf','_blank')"
+                >
+                  Open
+                </button>
+              </div>
+            </article>
+
+            <article class="details-container color-container">
+              <div class="article-container">
+                <img
+                  src="./extra_material/video_game.jpg"
+                  alt="Preview of CA1 project"
+                  class="project-img"
+                >
+              </div>
+              <h2 class="experience-sub-title project-title">CA 1</h2>
+              <div class="btn-container">
+                <button
+                  class="btn btn-color-2 project-btn"
+                  onclick="window.open
+                  ('https://dikult105.k.uib.no/2024H/students/yamou1685/CA1/CA1_yamou1685.html','_blank')"
+                >
+                  Open
+                </button>
+              </div>
+            </article>
+
+            <article class="details-container color-container">
+              <div class="article-container">
+                <img
+                  src="./extra_material/tyger.jpg"
+                  alt="Preview of CA2 project"
+                  class="project-img"
+                >
+              </div>
+              <h2 class="experience-sub-title project-title">CA 2</h2>
+              <div class="btn-container">
+                <button
+                  class="btn btn-color-2 project-btn"
+                  onclick="window.open
+                  ('https://dikult105.k.uib.no/2024H/students/yamou1685/CA2/CA2_yamou1685.html','_blank')"
+                >
+                  Open
+                </button>
+              </div>
+            </article>
+
+            <article class="details-container color-container">
+              <div class="article-container">
+                <img
+                  src="./extra_material/elene_profil2.jpg"
+                  alt="Preview of Exercise 1"
+                  class="project-img"
+                >
+              </div>
+              <h2 class="experience-sub-title project-title">Exercise 1</h2>
+              <div class="btn-container">
+                <button
+                  class="btn btn-color-2 project-btn"
+                  onclick="window.open
+                  ('https://dikult105.k.uib.no/2024H/students/yamou1685/indexx.html','_blank')"
+                >
+                  Open
+                </button>
+              </div>
+            </article>
+          </div>
+
+          <!-- Button for scrolling projects (right)-->
+          <button class="carousel-arrow right" aria-label="Next Project">&#9654;</button>
+        </div>
+      </section>
+
+      <!-- Contact Section -->
+      <section id="contact">
+        <h1 class="title" id="contact-heading">Contact Me</h1>
+        <div class="contact-info-upper-container">
+          <article class="contact-info-container">
+            <img
+              src="./extra_material/email.png"
+              alt="Email icon"
+              class="icon contact-icon email-icon"
+            >
+            <p><a href="mailto:examplemail@gmail.com">yannism1998@hotmail.com</a></p>
+          </article>
+          <article class="contact-info-container">
+            <img
+              src="./extra_material/phone.png"
+              alt="Phone icon"
+              class="icon contact-icon"
+            >
+            <p><a href="tel:+1234567890">+4741405029</a></p>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer section -->
+    <footer>
+      <nav aria-label="Footer navigation">
+        <div class="nav-links-container">
+          <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#experience">Technical Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+      </nav>
+      <p>Yannis Maxitas Moula 2024</p>
+    </footer>
+
+    <!-- Linking my js file -->
+    <script src="js/final_portfolio.js"></script>
+
+    <!-- Switching my language -->
+    <div id="language-switcher">
+      <img
+        src="./extra_material/uk_flag.png"
+        alt="English"
+        id="en"
+        class="flag"
+      >
+      <img
+        src="./extra_material/norwegian_flag.png"
+        alt="Norwegian"
+        id="no"
+        class="flag"
+      >
+    </div>
+  </body>
+</html>

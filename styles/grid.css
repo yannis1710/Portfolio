@@ -1,0 +1,51 @@
+*, *:before, *:after {
+    box-sizing:border-box;}
+
+/*parent grid/container*/    
+.grid-container{
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr; /*or, repeat (3, 1fr)*/
+    grid-template-rows: repeat(4, 25%);
+    gap: 10px; /*can also be defined through column-gap and row-gap*/
+}
+
+/*all child elements*/
+section {
+    background-color:rgb(68, 190, 52);
+    padding:0.5em;
+    border: 0.5px solid black;
+}
+
+.one {
+    grid-column: 1 / 3; /*or span 2*/ /*NOTE: saying -1 spands the full width of the grid, regardless of the number of columns. So, you don't have to count.*/
+}
+
+.two {
+    /*order: 4;*/
+    place-items: center;
+}
+
+.two p {
+    justify-self:end;
+}
+
+.three {
+    justify-items: center;
+}
+
+/*notice the difference between .three and .four, where one aligns the items vertically, and the other horizontally*/
+/*that is because the keyword justify deals in rows, and align deals with columns*/
+.four {
+    align-self: center;
+}
+
+.five {
+    grid-column: 2 / 4;
+    grid-row: -3 / -1;
+    text-align:center;
+}
+
+/*instead of classing all sections differently, try using nth-child to target your element*/
+/*section:nth-child(4){
+    grid-column: span 2;
+}*/

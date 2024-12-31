@@ -1,0 +1,61 @@
+@font-face {
+    font-family: 'CustomFont';
+    src: url('fonts/CustomFont.woff2') format('woff2'),
+         url('fonts/CustomFont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+body {
+    margin: 20px;
+    font-size: 16px;
+    line-height: 1.6;
+    background-color: #000000; /* Set background to black */
+    color: #ffffff; /* Set text color to white */
+    font-family: 'Press Start 2P', 'CustomFont', sans-serif; /* Gaming-inspired font */
+}
+
+article {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #1a1a1a; /* Slightly lighter black for article background */
+    border-radius: 8px; /* Rounded corners for a modern look */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Subtle shadow for depth */
+}
+
+h1 {
+    font-size: 2em;
+    margin-bottom: 0.5em;
+    color: #00ff00; /* Fun neon green for gaming theme */
+    text-shadow: 2px 2px #333; /* Slight shadow for gaming effect */
+}
+
+h2 {
+    font-size: 1.5em;
+    margin-bottom: 0.5em;
+    color: #ff4500; /* Vibrant orange for subheadings */
+    text-shadow: 1px 1px #222; /* Subtle shadow */
+}
+
+p {
+    margin-bottom: 1em;
+    text-align: justify;
+    color: #d3d3d3; /* Slightly dimmed white for easier readability */
+}
+
+a {
+    color: #ffffff; /* Default white for links */
+    text-decoration: underline; /* Keeps the underline for links */
+}
+
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin: 0 auto 20px auto;
+    border: 2px solid #ffffff; /* White border around images for contrast */
+    border-radius: 5px; /* Rounded corners */
+}

@@ -1,0 +1,1028 @@
+/* 
+Last updated: 15.12.2024 
+Author: Yannis Maxitas Moula
+Purpose: Portfolio Website
+*/
+
+/* Import Ubuntu font from Google Fonts (I tried ou many fonts) */
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap");
+
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* -----------------------------------------------------------
+   BASE BODY STYLING
+----------------------------------------------------------- */
+
+body {
+  font-family: "Ubuntu", sans-serif;
+  overflow-x: hidden; 
+  color: black;       
+}
+
+
+body.dark-mode {
+  background-color: #000;
+  color: #fff;
+}
+
+/* -----------------------------------------------------------
+   BUTTON STYLING DARKMODE
+----------------------------------------------------------- */
+
+body.dark-mode .btn-container .btn {
+  background-color: white;
+  color: black;
+  border-color: black; 
+}
+
+body.dark-mode .btn-container .btn:hover {
+  background-color: #f0f0f0; 
+  color: black;
+}
+
+/* -----------------------------------------------------------
+   BACKGROUND VIDEOS
+----------------------------------------------------------- */
+
+#background-video-light,
+#background-video-dark {
+  position: fixed;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  min-height: 100%;
+  object-fit: cover; /* This ensures that the video covers all the screen */
+  z-index: -1;       /* This places the video behind all other elements */
+}
+
+#background-video-light {
+  display: block;
+}
+
+#background-video-dark {
+  display: none;
+}
+
+body.dark-mode #background-video-light {
+  display: none;
+}
+
+body.dark-mode #background-video-dark {
+  display: block;
+}
+
+/* -----------------------------------------------------------
+   LINKS & FOCUS STYLING
+----------------------------------------------------------- */
+
+a,
+a:visited,
+a:link,
+a:active {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+a:focus, 
+button:focus, 
+.btn:focus {
+  outline: 2px solid #007bff;
+  outline-offset: 4px;
+}
+
+/* -----------------------------------------------------------
+   DARK MODE TOGGLE SWITCH
+----------------------------------------------------------- */
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 26px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: #ccc;
+  transition: background-color 0.4s;
+  border-radius: 34px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 20px;
+  width: 20px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  transition: transform 0.4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: #007bff;
+}
+
+input:checked + .slider:before {
+  transform: translateX(24px);
+}
+
+/* -----------------------------------------------------------
+   SECTIONS SPECIFICALLY IN DARK MODE 
+----------------------------------------------------------- */
+
+body.dark-mode .details-container,
+body.dark-mode .color-container {
+  background-color: #222;
+  border-color: #444;
+}
+
+body.dark-mode .details-container:hover,
+body.dark-mode .color-container:hover {
+  background-color: #333;
+}
+
+body.dark-mode .icon {
+  filter: brightness(0) invert(1);
+}
+
+body.dark-mode #experience .icon {
+  filter: none;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+a,
+.btn {
+  transition: all 300ms ease;
+}
+
+/* -----------------------------------------------------------
+   NAVIGATION BOTH FOR DESKTOP AND MOBILE
+----------------------------------------------------------- */
+
+nav,
+.nav-links {
+  display: flex;
+}
+
+nav {
+  justify-content: space-around;
+  align-items: center;
+  height: 17vh;
+  position: relative;
+  z-index: 10;
+}
+
+.nav-links {
+  gap: 2rem;
+  list-style: none;
+  font-size: 1.5rem;
+}
+
+.logo {
+  font-size: 2rem;
+}
+
+.logo:hover {
+  cursor: default;
+}
+
+#hamburger-nav {
+  display: none;
+}
+
+.hamburger-menu {
+  position: relative;
+  display: inline-block;
+}
+
+.hamburger-icon {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 24px;
+  width: 30px;
+  cursor: pointer;
+}
+
+.hamburger-icon span {
+  width: 100%;
+  height: 2px;
+  background-color: currentColor;
+  transition: all 0.3s ease-in-out;
+}
+
+.menu-links {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: inherit;
+  width: fit-content;
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.3s ease-in-out;
+}
+
+.menu-links a {
+  display: block;
+  padding: 10px;
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+.menu-links li {
+  list-style: none;
+}
+
+.menu-links.open {
+  max-height: 300px;
+}
+
+.hamburger-icon.open span:first-child {
+  transform: rotate(45deg) translate(10px, 5px);
+}
+
+.hamburger-icon.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger-icon.open span:last-child {
+  transform: rotate(-45deg) translate(10px, -5px);
+}
+
+.hamburger-icon span:first-child {
+  transform: none;
+  opacity: 1;
+}
+
+/* -----------------------------------------------------------
+   SECTION STYLING
+----------------------------------------------------------- */
+
+section {
+  padding-top: 4vh;
+  height: 96vh;
+  margin: 0 10rem;
+  box-sizing: border-box;
+  min-height: fit-content;
+  position: relative;
+  z-index: 1;
+}
+
+.section-container {
+  display: flex;
+}
+
+/* -----------------------------------------------------------
+   PROFILE SECTION SPECIFICALLY
+----------------------------------------------------------- */
+
+#profile {
+  display: flex;
+  justify-content: center;
+  gap: 5rem;
+  height: 80vh;
+}
+
+.section__pic-container {
+  display: flex; 
+  height: 520px; /* I played around here a lot */
+  width: 520px;  /* I played around here a lot */
+  margin: auto 0;
+}
+
+.section__text {
+  align-self: center;
+  text-align: center;
+}
+
+.section__text p {
+  font-weight: 600;
+}
+
+.section__text__p1 {
+  text-align: center;
+}
+
+.section__text__p2 {
+  font-size: 1.75rem;
+  margin-bottom: 1rem;
+}
+
+.title {
+  font-size: 3rem;
+  text-align: center;
+}
+
+#socials-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+  gap: 1rem;
+}
+
+/* -----------------------------------------------------------
+   ICON STYLING
+----------------------------------------------------------- */
+
+.icon {
+  cursor: pointer;
+  height: 2rem;
+}
+
+/* -----------------------------------------------------------
+   BUTTONS STYLING (HOVERING AND SUCH THINGD)
+----------------------------------------------------------- */
+
+.btn-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.btn {
+  font-weight: 600;
+  transition: all 300ms ease;
+  padding: 1rem;
+  width: 8rem;
+  border-radius: 2rem;
+  border: rgb(53, 53, 53) 0.1rem solid;
+  background: none;
+}
+
+.btn:hover {
+  background: rgb(53, 53, 53);
+  color: white;
+}
+
+.btn-color-2:hover {
+  border: rgb(255, 255, 255) 0.1rem solid;
+}
+
+.btn-container .icon {
+  display: inline-block;
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  margin: 0 0.5rem;
+}
+
+.btn-container .icon:hover {
+  transform: scale(1.1);
+}
+
+.icon-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 1rem;
+}
+
+#projects .btn-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5em;
+  width: 100%;
+}
+
+/* -----------------------------------------------------------
+   ABOUT SECTION SPECIFICALLY
+----------------------------------------------------------- */
+
+#about {
+  position: relative;
+}
+
+.about-containers {
+  gap: 2rem;
+  margin-bottom: 2rem;
+  margin-top: 2rem;
+}
+
+.about-details-container {
+  justify-content: center;
+  flex-direction: column;
+}
+
+.about-containers,
+.about-details-container {
+  display: flex;
+}
+
+.about-pic {
+  border-radius: 2rem;
+}
+
+.arrow {
+  position: absolute;
+  right: -5rem;
+  bottom: 2.5rem;
+}
+
+.details-container {
+  display: flex;
+  flex-direction: column; 
+  justify-content: center; /* Centering was the best fit for my vibe */
+  align-items: center; 
+  padding: 1.5rem;
+  flex: 1;
+  background: white;
+  border-radius: 2rem;
+  border: rgb(53, 53, 53) 0.1rem solid;
+  border-color: rgb(163, 163, 163);
+  text-align: center; 
+}
+
+
+.about-text-box {
+  width: 80%; /* I played around a lot here */
+  max-width: 800px; /* I played around a lot here */
+  min-height: 150px; /* I played around a lot here */
+  padding: 1rem; /* I played around a lot here */
+  margin: 1rem auto; /* I played around a lot here */
+  background: white;
+  border-radius: 2rem;
+  border: 1px solid rgb(163, 163, 163);
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.about-text-box p {
+  font-size: 1rem; 
+  line-height: 1.5; 
+  margin: 0; 
+}
+
+.section-container {
+  gap: 4rem;
+  height: 80%;
+}
+
+/* -----------------------------------------------------------
+   TECHNICAL SKILLS SECTION SPECIFICALLY
+----------------------------------------------------------- */
+
+#experience {
+  position: relative;
+  margin-bottom: 1rem; 
+}
+
+.experience-sub-title {
+  font-weight: 600;
+  font-size: 1.75rem;
+  margin-bottom: 1rem; 
+}
+
+.experience-details-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin-bottom: 1.5rem; 
+}
+
+.article-container {
+  display: flex;
+  text-align: initial;
+  flex-wrap: wrap;
+  flex-direction: row;
+  gap: 2rem; 
+  justify-content: space-around;
+}
+
+article {
+  display: flex;
+  width: 10rem;
+  justify-content: space-around;
+  gap: 0.5rem;
+}
+
+article .icon {
+  cursor: default;
+}
+
+/* --------------------------------------------------------------
+   PROJECTS SECTION SPECIFICALLY (CAROUSEL AND FLICKING PROJECTS)
+----------------------------------------------------------------- */
+
+#projects {
+  position: relative;
+  margin-top: 1rem; 
+  text-align: center; 
+}
+
+
+.carousel-container {
+  position: relative;
+  max-width: 60%; 
+  margin: 0 auto; 
+  overflow: hidden; 
+}
+
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+
+#projects .details-container {
+  display: block; /* Here i had to override my display: grid */
+  min-width: 100%; 
+}
+
+
+.color-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 70%; 
+  margin: 0 auto; 
+  min-height: 200px; 
+  padding: 0.5rem; 
+  border-radius: 1rem;
+  background: rgb(250, 250, 250);
+  box-sizing: border-box;
+  text-align: center;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+
+.project-img {
+  border-radius: 2.5rem;
+  width: 65%; 
+  height: 190px; 
+  object-fit: cover; 
+}
+
+
+.project-title {
+  margin: 0.75rem 0; 
+  font-size: 1rem; 
+  text-align: center;
+  white-space: normal;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+
+.carousel-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: rgb(95, 143, 205);
+  font-size: 2.5rem; 
+  cursor: pointer;
+  z-index: 2;
+  padding: 0.5rem;
+}
+
+.carousel-arrow.left {
+  left: 0.5rem;
+}
+
+.carousel-arrow.right {
+  right: 0.5rem;
+}
+
+body.dark-mode .carousel-arrow {
+  color: white;
+}
+
+.project-btn {
+  display: block;
+  text-align: center;
+  padding: 0.25em 0.5em; 
+  font-size: 0.9rem; 
+  border-radius: 0.5rem;
+  border: 2px solid rgb(163, 163, 163);
+  background: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 40%; 
+  box-sizing: border-box;
+}
+
+.project-btn:hover {
+  background: rgb(163, 163, 163);
+  color: white;
+}
+
+/* -----------------------------------------------------------
+   CONTACT SECTION SPECIFICALLY, ALSO IN DARK MODE
+----------------------------------------------------------- */
+
+#contact {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  height: 70vh;
+}
+
+.contact-info-upper-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  border-radius: 2rem;
+  border: 0.1rem solid rgba(53, 53, 53, 0.8);
+  background: rgba(250, 250, 250, 0.7);
+  margin: 2rem auto;
+  padding: 1rem 2rem;
+}
+
+.contact-info-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1rem;
+  margin: 0.5rem 1rem;
+  padding: 0.5rem 1.5rem;
+  border-radius: 1rem;
+  width: auto;
+}
+
+.contact-info-container p,
+.contact-info-container a {
+  font-size: 1.25rem;
+  margin: 0;
+  color: inherit;
+}
+
+.contact-icon {
+  cursor: default;
+  width: 2.5rem;
+  height: 2.5rem;
+}
+
+body.dark-mode .contact-info-upper-container {
+  background: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  border-color: #444;
+}
+
+body.dark-mode .contact-info-container p,
+body.dark-mode .contact-info-container a {
+  color: #fff;
+}
+
+body.dark-mode .contact-icon {
+  filter: invert(1);
+}
+
+/* -----------------------------------------------------------
+   FOOTER SECTION SPECIFICALLY
+----------------------------------------------------------- */
+
+footer {
+  height: 26vh;
+  margin: 0 1rem;
+}
+
+footer p {
+  text-align: center;
+}
+
+/* -----------------------------------------------------------
+   CURSOR
+----------------------------------------------------------- */
+
+body {
+  cursor: none;
+}
+
+.logo {
+  cursor: none;
+}
+
+.parent-element {
+  cursor: none;
+}
+
+.logo:hover ~ #custom-cursor {
+  width: 30px;
+  height: 30px;
+  background-color: rgba(255, 255, 255, 0.7);
+  border: 2px solid black;
+}
+
+#custom-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  background-color: rgba(0, 0, 0, 0.7);
+  border: 2px solid white;
+  border-radius: 50%;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  transition: transform 0.1s ease, width 0.2s ease, height 0.2s ease;
+  z-index: 10000;
+}
+
+a:hover, 
+.btn:hover, 
+button:hover {
+  cursor: none;
+}
+
+/* -----------------------------------------------------------
+   FLAGS FOR LANGUAGE SWITCHER
+----------------------------------------------------------- */
+
+#language-switcher {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  display: flex;
+  gap: 10px;
+  z-index: 1000;
+}
+
+#language-switcher .flag {
+  width: 30px;
+  height: 20px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+#language-switcher .flag:hover {
+  transform: scale(1.1);
+}
+
+/* -----------------------------------------------------------
+   MEDIA QUERIES, I HAVE 3 BREAKPOINTS
+----------------------------------------------------------- */
+
+@media screen and (max-width: 1200px) {
+  #desktop-nav {
+    display: none;
+  }
+  #hamburger-nav {
+    display: flex;
+    position: absolute;
+    top: 10px; 
+    left: 10px;
+    z-index: 1000; 
+  }
+  .menu-links {
+    position: absolute;
+    top: 0;
+    left: calc(100% + 10px); 
+    background-color: inherit;
+    width: 200px; 
+    max-height: 300px; 
+    overflow-y: auto; 
+    border: 1px solid #ddd; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    z-index: 999; 
+  }
+  .menu-links.open {
+    max-height: 300px;
+  }
+  .menu-links a {
+    display: block;
+    padding: 10px;
+    text-align: left;
+    font-size: 1.25rem;
+    background-color: white;
+    color: black;
+    border-bottom: 1px solid #eee; 
+    transition: background-color 0.3s ease;
+  }
+  .menu-links a:hover {
+    background-color: #f5f5f5;
+  }
+  #experience,
+  .experience-details-container {
+    margin-top: 2rem;
+  }
+  #profile,
+  .section-container {
+    display: block;
+  }
+  .arrow {
+    display: none;
+  }
+  section,
+  .section-container {
+    height: fit-content;
+    margin: 0 auto; 
+    max-width: 100%; 
+    overflow-x: hidden; 
+  }
+  .section__pic-container {
+    width: 275px;
+    height: 275px;
+    margin: 0 auto 2rem;
+  }
+  .about-containers {
+    margin-top: 0;
+  }
+  .details-container {
+    grid-template-columns: none;
+  }
+  .color-container {
+    padding: 0.5rem;
+    margin: 0 auto;
+    max-width: 90%; 
+  }
+}
+
+@media screen and (max-width: 768px) {
+  #contact,
+  footer {
+    height: fit-content;
+  }
+  #hamburger-nav {
+    display: flex;
+    position: absolute;
+    top: 10px; 
+    left: 10px;
+    z-index: 1000; 
+  }
+  .menu-links {
+    position: absolute;
+    top: 0;
+    left: calc(100% + 10px); 
+    width: 180px; 
+    max-height: 250px; 
+    overflow-y: auto;
+    border: 1px solid #ddd;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  .menu-links.open {
+    max-height: 250px;
+  }
+  .menu-links a {
+    display: block;
+    padding: 8px;
+    text-align: left;
+    font-size: 1rem;
+    background-color: white;
+    color: black;
+    border-bottom: 1px solid #eee;
+  }
+  .menu-links a:hover {
+    background-color: #f5f5f5;
+  }
+  .details-container {
+    grid-template-columns: none;
+  }
+  .color-container {
+    padding: 0.5rem;
+    margin: 0 auto;
+    max-width: 90%;
+  }
+  #profile {
+    height: 83vh;
+    margin-bottom: 0;
+  }
+  footer nav {
+    height: fit-content;
+    margin-bottom: 2rem;
+  }
+  .about-containers,
+  .contact-info-upper-container,
+  .btn-container {
+    flex-wrap: wrap;
+  }
+  .contact-info-container {
+    margin: 0;
+  }
+  .contact-info-container p,
+  .nav-links li a {
+    font-size: 1rem;
+  }
+  .experience-sub-title {
+    font-size: 1.25rem;
+  }
+  .logo {
+    font-size: 1.5rem;
+  }
+  .nav-links {
+    flex-direction: column;
+    gap: 0.5rem;
+    text-align: center;
+  }
+  .section__pic-container {
+    width: auto;
+    height: 46vw;
+    justify-content: center;
+  }
+  .section__text__p2 {
+    font-size: 1.25rem;
+  }
+  .title {
+    font-size: 2rem;
+  }
+  .text-container {
+    text-align: justify;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  #contact,
+  footer {
+    height: 40vh;
+  }
+  #hamburger-nav {
+    display: flex;
+    position: absolute;
+    top: 10px; 
+    left: 10px;
+    z-index: 1000; 
+  }
+  .menu-links {
+    position: absolute;
+    top: 0;
+    left: calc(100% + 5px); 
+    width: 150px; 
+    max-height: 200px; 
+    overflow-y: auto;
+    border: 1px solid #ddd;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  .menu-links.open {
+    max-height: 200px;
+  }
+  .menu-links a {
+    display: block;
+    padding: 8px;
+    text-align: left;
+    font-size: 0.9rem;
+    background-color: white;
+    color: black;
+    border-bottom: 1px solid #eee;
+  }
+  .menu-links a:hover {
+    background-color: #f5f5f5;
+  }
+  article {
+    font-size: 1rem;
+  }
+  .details-container {
+    grid-template-columns: none;
+  }
+  .color-container {
+    padding: 0.5rem;
+    margin: 0 auto;
+    max-width: 90%;
+  }
+  .btn-container {
+    flex-wrap: wrap;
+  }
+}
+
+/* -----------------------------------------------------------
+   "MAGNIFYING GLASS" STYLING FOR IMAGE ZOOM WHEN HOVERING
+----------------------------------------------------------- */
+
+.magnifier {
+  position: absolute;
+  border: 3px solid #000;
+  border-radius: 50%;
+  pointer-events: none;
+  transform: scale(0);
+  transform-origin: center;
+  transition: transform 0.2s ease-in-out;
+  overflow: hidden;
+  width: 100px;
+  height: 100px;
+  z-index: 9999;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.magnifier img {
+  position: absolute;
+  width: auto;
+  height: auto;
+  pointer-events: none;
+}
